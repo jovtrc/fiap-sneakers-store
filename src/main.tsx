@@ -1,5 +1,6 @@
 import './index.css'
 
+import Clarity from '@microsoft/clarity'
 import * as Sentry from '@sentry/react'
 import { createRouter, RouterProvider } from '@tanstack/react-router'
 import { StrictMode } from 'react'
@@ -15,6 +16,8 @@ declare module '@tanstack/react-router' {
     router: typeof router
   }
 }
+
+Clarity.init('qth0a3aevj')
 
 Sentry.init({
   dsn: 'https://19fc5e4456581cedb583cff7be0b3fdd@o4509034035544064.ingest.us.sentry.io/4509034042687488',
