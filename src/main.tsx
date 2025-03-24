@@ -1,5 +1,6 @@
 import './index.css'
 
+import * as Sentry from '@sentry/react'
 import { createRouter, RouterProvider } from '@tanstack/react-router'
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
@@ -14,6 +15,10 @@ declare module '@tanstack/react-router' {
     router: typeof router
   }
 }
+
+Sentry.init({
+  dsn: 'https://19fc5e4456581cedb583cff7be0b3fdd@o4509034035544064.ingest.us.sentry.io/4509034042687488',
+})
 
 // Render the app
 const rootElement = document.getElementById('root')!
