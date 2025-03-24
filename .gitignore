@@ -28,3 +28,6 @@ dist-ssr
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
+
+# Sentry Config File
+.env.sentry-build-plugin
