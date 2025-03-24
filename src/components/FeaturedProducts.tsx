@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { Card, CardContent } from '@/components/ui'
+import { transformNumberToBrl } from '@/lib/formatter'
 import { supabase } from '@/repositories'
 
 import { Tables } from '../types/database.types'
@@ -51,7 +52,9 @@ function ProductCard({ product }: { product: Tables<'products'> }) {
         <CardContent className="p-4">
           <p className="text-sm">Adidas</p>
           <h3 className="text-lg font-medium">{product.name}</h3>
-          <p className="mt-1 font-bold">${product.price.toFixed(2)}</p>
+          <p className="mt-1 font-bold">
+            {transformNumberToBrl(product.price)}
+          </p>
         </CardContent>
       </a>
     </Card>
