@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router'
 import { ShoppingCart, User } from 'lucide-react'
 
 import { ThemeToggler } from '@/components/ThemeToggler'
@@ -21,7 +22,7 @@ const AccountButton = () => {
   return (
     <Button variant="ghost" size="icon" className="cursor-pointer">
       <User className="h-5 w-5" />
-      <span className="sr-only">Account</span>
+      <span className="sr-only">Minha Conta</span>
     </Button>
   )
 }
@@ -31,7 +32,7 @@ const CartButton = () => {
   const cartItemCount = cartItems.length
 
   return (
-    <a href="/cart">
+    <Link to="/carrinho">
       <Button variant="ghost" size="icon" className="relative cursor-pointer">
         <ShoppingCart className="h-5 w-5" />
         {cartItemCount > 0 && (
@@ -39,8 +40,8 @@ const CartButton = () => {
             {cartItemCount}
           </span>
         )}
-        <span className="sr-only">Cart</span>
+        <span className="sr-only">Carrinho</span>
       </Button>
-    </a>
+    </Link>
   )
 }

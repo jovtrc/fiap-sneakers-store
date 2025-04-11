@@ -25,9 +25,9 @@ export function CategorySection() {
   return (
     <section className="space-y-6">
       <div className="flex flex-col items-center space-y-2 text-center">
-        <h2 className="text-3xl font-bold tracking-tight">Shop by Category</h2>
+        <h2 className="text-3xl font-bold tracking-tight">Buscar por Marca</h2>
         <p className="text-muted-foreground max-w-[600px]">
-          Browse our collections and find your perfect style
+          Encontre as melhores opções de sneakers pela sua marca favorita.
         </p>
       </div>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3">

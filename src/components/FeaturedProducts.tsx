@@ -3,11 +3,10 @@ import { useEffect, useState } from 'react'
 import { Card, CardContent } from '@/components/ui'
 import { transformNumberToBrl } from '@/lib/formatter'
 import { supabase } from '@/repositories'
-
-import { Tables } from '../types/database.types'
+import { TProduct } from '@/types/product.types'
 
 export function FeaturedProducts() {
-  const [allProducts, setAllProducts] = useState<Tables<'products'>[]>([])
+  const [allProducts, setAllProducts] = useState<TProduct[]>([])
 
   useEffect(() => {
     async function getTodos() {
@@ -24,9 +23,9 @@ export function FeaturedProducts() {
   return (
     <section className="space-y-6">
       <div className="flex flex-col items-center space-y-2 text-center">
-        <h2 className="text-3xl font-bold tracking-tight">Featured Products</h2>
+        <h2 className="text-3xl font-bold tracking-tight">Destaques</h2>
         <p className="text-muted-foreground max-w-[600px]">
-          Our most popular items, handpicked for you
+          Não deixe escapar a oportunidade de ter um sneaker exclusivo.
         </p>
       </div>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
@@ -38,7 +37,7 @@ export function FeaturedProducts() {
   )
 }
 
-function ProductCard({ product }: { product: Tables<'products'> }) {
+function ProductCard({ product }: { product: TProduct }) {
   return (
     <Card className="group border-primary-foreground overflow-hidden p-0 shadow-none">
       <a href={`/produtos/${product.slug}`}>

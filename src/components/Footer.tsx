@@ -5,33 +5,13 @@ export function Footer() {
         <a
           href="/"
           aria-label="ir para home"
-          className="mx-auto block size-fit text-2xl font-bold"
+          className="mx-auto mb-8 block size-fit text-2xl font-bold"
         >
-          SneakersHub
+          sneakers<span className="text-blue-600">_store</span>
         </a>
 
-        <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
-          <a href="#" className="hover:text-muted-foreground">
-            <span>Features</span>
-          </a>
-          <a href="#" className="hover:text-muted-foreground">
-            <span>Solution</span>
-          </a>
-          <a href="#" className="hover:text-muted-foreground">
-            <span>Customers</span>
-          </a>
-          <a href="#" className="hover:text-muted-foreground">
-            <span>Pricing</span>
-          </a>
-          <a href="#" className="hover:text-muted-foreground">
-            <span>Help</span>
-          </a>
-          <a href="#" className="hover:text-muted-foreground">
-            <span>About</span>
-          </a>
-        </div>
         <span className="text-caption block text-center text-sm">
-          &copy; {new Date().getFullYear()} SneakersHub. Todos os direitos
+          &copy; {new Date().getFullYear()} sneakers_store. Todos os direitos
           reservados.
         </span>
       </div>

@@ -9,8 +9,11 @@ export function Header() {
       <div className="container mx-auto flex h-16 items-center px-4">
         <MobileMenu />
 
-        <a href="/" className="flex items-center md:w-52">
-          <span className="text-xl font-bold">SneakersHub</span>
+        <a
+          href="/"
+          className="flex items-center text-xl font-bold lowercase md:w-52"
+        >
+          sneakers<span className="text-blue-600">_store</span>
         </a>
 
         <Menu />

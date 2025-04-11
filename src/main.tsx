@@ -32,9 +32,6 @@ if (!rootElement.innerHTML) {
       <ThemeProvider defaultTheme="system" storageKey="sneakershub:theme">
         <CartProvider>
           <RouterProvider router={router} />
-          {/* <div className="flex min-h-screen flex-col">
-              <App />
-            </div> */}
         </CartProvider>
       </ThemeProvider>
     </StrictMode>

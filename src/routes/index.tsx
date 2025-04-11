@@ -21,15 +21,16 @@ function Index() {
 
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <h2 className="text-3xl font-bold tracking-tight">
-            Ready to upgrade your style?
+            Acesso Exclusivo aos Sneakers Mais Raros
           </h2>
           <p className="text-muted-foreground max-w-[600px]">
-            Discover our latest collections and find your perfect fit.
+            Para colecionadores e entusiastas: garanta peças únicas antes que
+            esgotem.
           </p>
           <Button asChild size="lg">
-            <a href="/products">
+            <a href="/">
               <ShoppingBag className="mr-2 h-4 w-4" />
-              Shop Now
+              Conferir lançamentos
             </a>
           </Button>
         </div>

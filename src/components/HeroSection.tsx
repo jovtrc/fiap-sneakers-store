@@ -15,11 +15,11 @@ export function HeroSection() {
         <div className="relative container mx-auto px-4">
           <div className="max-w-lg space-y-6 text-white">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-              New Season Collection
+              Seleção Premium de Sneakers
             </h1>
             <p className="text-lg md:text-xl">
-              Discover our latest styles crafted with premium materials for
-              exceptional comfort and timeless elegance.
+              Curadoria especializada para oferecer os modelos mais cobiçados do
+              mercado.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button
@@ -27,10 +27,10 @@ export function HeroSection() {
                 size="lg"
                 className="bg-white text-black hover:bg-white/90"
               >
-                <a href="/products">Shop Now</a>
+                <a href="/products">Últimos Lançamentos</a>
               </Button>
               <Button asChild size="lg" variant="ghost">
-                <a href="/products/new">New Arrivals</a>
+                <a href="/products/new">Promoções</a>
               </Button>
             </div>
           </div>

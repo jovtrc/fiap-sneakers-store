@@ -7,13 +7,9 @@ import {
   SliderMainItem,
   SliderThumbItem,
 } from '@/components/ui/extension/carousel'
-import { Tables } from '@/types/database.types'
+import { TProduct } from '@/types/product.types'
 
-export const ImagesCarousel = ({
-  product,
-}: {
-  product: Tables<'products'>
-}) => {
+export const ImagesCarousel = ({ product }: { product: TProduct }) => {
   return (
     <Carousel>
       <CarouselNext className="top-1/3 -translate-y-1/3 cursor-pointer p-5 *:!size-6" />

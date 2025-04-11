@@ -13,6 +13,7 @@ import {
   Button,
 } from '@/components/ui'
 import { transformNumberToBrl } from '@/lib/formatter'
+import { useCart } from '@/providers'
 import { supabase } from '@/repositories'
 
 export const Route = createFileRoute('/produtos/$slug')({
@@ -43,10 +44,7 @@ function RouteComponent() {
   const [quantity, setQuantity] = useState(1)
   const [selectedSize, setSelectedSize] = useState<number>()
   const [selectedColor, setSelectedColor] = useState('')
-
-  const handleAddToCart = async () => {
-    return true
-  }
+  const { addToCart } = useCart()
 
   const { product } = Route.useLoaderData()
 
@@ -56,6 +54,17 @@ function RouteComponent() {
         <p>caiu no 404</p>
       </CatchNotFound>
     )
+  }
+
+  const handleAddToCart = () => {
+    if (!selectedSize || !selectedColor) return
+
+    addToCart({
+      ...product,
+      quantity,
+      selectedSize,
+      selectedColor,
+    })
   }
 
   return (
