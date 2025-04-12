@@ -131,35 +131,39 @@ export function RouteComponent() {
                         </span>
                       </div>
                       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
-                        {order.products_list.map((item: TProduct) => (
-                          <div
-                            key={item.id}
-                            className="flex items-center gap-3"
-                          >
-                            <div className="bg-muted relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-md">
-                              <img
-                                src={item.images[0] || '/placeholder.svg'}
-                                alt={item.name}
-                                className="object-cover"
-                              />
+                        {(order.products_list as TProduct[])?.map(
+                          (item: TProduct) => (
+                            <div
+                              key={item.id}
+                              className="flex items-center gap-3"
+                            >
+                              <div className="bg-muted relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-md">
+                                <img
+                                  src={item.images[0] || '/placeholder.svg'}
+                                  alt={item.name}
+                                  className="object-cover"
+                                />
+                              </div>
+                              <div>
+                                <p className="text-sm font-medium">
+                                  {item.name}
+                                </p>
+                                <p className="text-muted-foreground text-xs">
+                                  Qtd.: {item.quantity}
+                                </p>
+                                <p className="text-muted-foreground text-xs">
+                                  Cor: {item.selectedColor}
+                                </p>
+                                <p className="text-muted-foreground text-xs">
+                                  Tamanho: {item.selectedSize}
+                                </p>
+                                <p className="text-sm">
+                                  {transformNumberToBrl(item.price)}
+                                </p>
+                              </div>
                             </div>
-                            <div>
-                              <p className="text-sm font-medium">{item.name}</p>
-                              <p className="text-muted-foreground text-xs">
-                                Qtd.: {item.quantity}
-                              </p>
-                              <p className="text-muted-foreground text-xs">
-                                Cor: {item.selectedColor}
-                              </p>
-                              <p className="text-muted-foreground text-xs">
-                                Tamanho: {item.selectedSize}
-                              </p>
-                              <p className="text-sm">
-                                {transformNumberToBrl(item.price)}
-                              </p>
-                            </div>
-                          </div>
-                        ))}
+                          )
+                        )}
                       </div>
                     </div>
                   </div>
