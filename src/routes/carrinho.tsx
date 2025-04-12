@@ -85,7 +85,7 @@ const CartPage = () => {
                       <Button
                         variant="outline"
                         size="icon"
-                        className="h-8 w-8"
+                        className="h-8 w-8 cursor-pointer"
                         onClick={() =>
                           updateQuantity(item.id, (item.quantity || 1) - 1)
                         }
@@ -98,7 +98,7 @@ const CartPage = () => {
                       <Button
                         variant="outline"
                         size="icon"
-                        className="h-8 w-8"
+                        className="h-8 w-8 cursor-pointer"
                         onClick={() =>
                           updateQuantity(item.id, (item.quantity || 1) + 1)
                         }
@@ -108,7 +108,7 @@ const CartPage = () => {
                       <Button
                         variant="ghost"
                         size="icon"
-                        className="ml-2 h-8 w-8"
+                        className="ml-2 h-8 w-8 cursor-pointer"
                         onClick={() => removeFromCart(item.id)}
                       >
                         <Trash className="h-4 w-4" />
@@ -152,7 +152,7 @@ const CartPage = () => {
             </CardContent>
             <CardFooter>
               <Button asChild className="w-full">
-                <Link to="/">Finalizar compra</Link>
+                <Link to="/checkout">Finalizar compra</Link>
               </Button>
             </CardFooter>
           </Card>

@@ -11,11 +11,27 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as PerfilImport } from './routes/perfil'
+import { Route as LoginImport } from './routes/login'
 import { Route as CarrinhoImport } from './routes/carrinho'
 import { Route as IndexImport } from './routes/index'
+import { Route as CheckoutIndexImport } from './routes/checkout/index'
 import { Route as ProdutosSlugImport } from './routes/produtos/$slug'
+import { Route as CheckoutFinalizadoImport } from './routes/checkout/finalizado'
 
 // Create/Update Routes
+
+const PerfilRoute = PerfilImport.update({
+  id: '/perfil',
+  path: '/perfil',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LoginRoute = LoginImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const CarrinhoRoute = CarrinhoImport.update({
   id: '/carrinho',
@@ -29,9 +45,21 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const CheckoutIndexRoute = CheckoutIndexImport.update({
+  id: '/checkout/',
+  path: '/checkout/',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const ProdutosSlugRoute = ProdutosSlugImport.update({
   id: '/produtos/$slug',
   path: '/produtos/$slug',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const CheckoutFinalizadoRoute = CheckoutFinalizadoImport.update({
+  id: '/checkout/finalizado',
+  path: '/checkout/finalizado',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -53,11 +81,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CarrinhoImport
       parentRoute: typeof rootRoute
     }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginImport
+      parentRoute: typeof rootRoute
+    }
+    '/perfil': {
+      id: '/perfil'
+      path: '/perfil'
+      fullPath: '/perfil'
+      preLoaderRoute: typeof PerfilImport
+      parentRoute: typeof rootRoute
+    }
+    '/checkout/finalizado': {
+      id: '/checkout/finalizado'
+      path: '/checkout/finalizado'
+      fullPath: '/checkout/finalizado'
+      preLoaderRoute: typeof CheckoutFinalizadoImport
+      parentRoute: typeof rootRoute
+    }
     '/produtos/$slug': {
       id: '/produtos/$slug'
       path: '/produtos/$slug'
       fullPath: '/produtos/$slug'
       preLoaderRoute: typeof ProdutosSlugImport
+      parentRoute: typeof rootRoute
+    }
+    '/checkout/': {
+      id: '/checkout/'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -68,41 +124,83 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/carrinho': typeof CarrinhoRoute
+  '/login': typeof LoginRoute
+  '/perfil': typeof PerfilRoute
+  '/checkout/finalizado': typeof CheckoutFinalizadoRoute
   '/produtos/$slug': typeof ProdutosSlugRoute
+  '/checkout': typeof CheckoutIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/carrinho': typeof CarrinhoRoute
+  '/login': typeof LoginRoute
+  '/perfil': typeof PerfilRoute
+  '/checkout/finalizado': typeof CheckoutFinalizadoRoute
   '/produtos/$slug': typeof ProdutosSlugRoute
+  '/checkout': typeof CheckoutIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/carrinho': typeof CarrinhoRoute
+  '/login': typeof LoginRoute
+  '/perfil': typeof PerfilRoute
+  '/checkout/finalizado': typeof CheckoutFinalizadoRoute
   '/produtos/$slug': typeof ProdutosSlugRoute
+  '/checkout/': typeof CheckoutIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/carrinho' | '/produtos/$slug'
+  fullPaths:
+    | '/'
+    | '/carrinho'
+    | '/login'
+    | '/perfil'
+    | '/checkout/finalizado'
+    | '/produtos/$slug'
+    | '/checkout'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/carrinho' | '/produtos/$slug'
-  id: '__root__' | '/' | '/carrinho' | '/produtos/$slug'
+  to:
+    | '/'
+    | '/carrinho'
+    | '/login'
+    | '/perfil'
+    | '/checkout/finalizado'
+    | '/produtos/$slug'
+    | '/checkout'
+  id:
+    | '__root__'
+    | '/'
+    | '/carrinho'
+    | '/login'
+    | '/perfil'
+    | '/checkout/finalizado'
+    | '/produtos/$slug'
+    | '/checkout/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CarrinhoRoute: typeof CarrinhoRoute
+  LoginRoute: typeof LoginRoute
+  PerfilRoute: typeof PerfilRoute
+  CheckoutFinalizadoRoute: typeof CheckoutFinalizadoRoute
   ProdutosSlugRoute: typeof ProdutosSlugRoute
+  CheckoutIndexRoute: typeof CheckoutIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CarrinhoRoute: CarrinhoRoute,
+  LoginRoute: LoginRoute,
+  PerfilRoute: PerfilRoute,
+  CheckoutFinalizadoRoute: CheckoutFinalizadoRoute,
   ProdutosSlugRoute: ProdutosSlugRoute,
+  CheckoutIndexRoute: CheckoutIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -117,7 +215,11 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/carrinho",
-        "/produtos/$slug"
+        "/login",
+        "/perfil",
+        "/checkout/finalizado",
+        "/produtos/$slug",
+        "/checkout/"
       ]
     },
     "/": {
@@ -126,8 +228,20 @@ export const routeTree = rootRoute
     "/carrinho": {
       "filePath": "carrinho.tsx"
     },
+    "/login": {
+      "filePath": "login.tsx"
+    },
+    "/perfil": {
+      "filePath": "perfil.tsx"
+    },
+    "/checkout/finalizado": {
+      "filePath": "checkout/finalizado.tsx"
+    },
     "/produtos/$slug": {
       "filePath": "produtos/$slug.tsx"
+    },
+    "/checkout/": {
+      "filePath": "checkout/index.tsx"
     }
   }
 }

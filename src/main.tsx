@@ -7,6 +7,7 @@ import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 
 import { CartProvider, ThemeProvider } from './providers'
+import { SessionProvider } from './providers/SessionProvider'
 import { routeTree } from './routeTree.gen'
 
 const router = createRouter({ routeTree })
@@ -30,9 +31,11 @@ if (!rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <ThemeProvider defaultTheme="system" storageKey="sneakershub:theme">
-        <CartProvider>
-          <RouterProvider router={router} />
-        </CartProvider>
+        <SessionProvider>
+          <CartProvider>
+            <RouterProvider router={router} />
+          </CartProvider>
+        </SessionProvider>
       </ThemeProvider>
     </StrictMode>
   )

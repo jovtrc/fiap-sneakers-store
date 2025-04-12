@@ -20,10 +20,12 @@ export default ActionIcons
 
 const AccountButton = () => {
   return (
-    <Button variant="ghost" size="icon" className="cursor-pointer">
-      <User className="h-5 w-5" />
-      <span className="sr-only">Minha Conta</span>
-    </Button>
+    <Link to="/perfil">
+      <Button variant="ghost" size="icon" className="cursor-pointer">
+        <User className="h-5 w-5" />
+        <span className="sr-only">Minha Conta</span>
+      </Button>
+    </Link>
   )
 }
 

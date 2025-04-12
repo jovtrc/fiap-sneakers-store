@@ -1,6 +1,7 @@
 import { CatchNotFound, createFileRoute } from '@tanstack/react-router'
 import { Minus, Plus, ShoppingCart } from 'lucide-react'
 import { useState } from 'react'
+import { toast } from 'sonner'
 
 import { ImagesCarousel, PageLoading } from '@/components/ProductPage'
 import {
@@ -64,6 +65,11 @@ function RouteComponent() {
       quantity,
       selectedSize,
       selectedColor,
+    })
+
+    toast.success('Adicionado ao carrinho!', {
+      description: `O sneaker ${product.name} foi adicionaro ao seu carrinho.`,
+      descriptionClassName: '!text-muted-foreground',
     })
   }
 

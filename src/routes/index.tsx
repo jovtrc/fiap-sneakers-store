@@ -1,7 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { ShoppingBag } from 'lucide-react'
 
-import { CategorySection } from '@/components/CategorySection'
 import { FeaturedProducts } from '@/components/FeaturedProducts'
 import { HeroSection } from '@/components/HeroSection'
 import { Button } from '@/components/ui'
@@ -16,7 +15,6 @@ function Index() {
       <HeroSection />
 
       <div className="container mx-auto space-y-16 px-4 py-12">
-        <CategorySection />
         <FeaturedProducts />
 
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
