@@ -1,25 +1,8 @@
-import { useEffect, useState } from 'react'
-
 import { Card, CardContent } from '@/components/ui'
 import { transformNumberToBrl } from '@/lib/formatter'
-import { supabase } from '@/repositories'
 import { TProduct } from '@/types/product.types'
 
-export function FeaturedProducts() {
-  const [allProducts, setAllProducts] = useState<TProduct[]>([])
-
-  useEffect(() => {
-    async function getTodos() {
-      const { data } = await supabase.from('products').select()
-
-      if (data && data.length > 1) {
-        setAllProducts(data)
-      }
-    }
-
-    getTodos()
-  }, [])
-
+export function FeaturedProducts({ products }: { products: TProduct[] }) {
   return (
     <section className="space-y-6">
       <div className="flex flex-col items-center space-y-2 text-center">
@@ -29,7 +12,7 @@ export function FeaturedProducts() {
         </p>
       </div>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
-        {allProducts.map((product) => (
+        {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
@@ -37,10 +20,10 @@ export function FeaturedProducts() {
   )
 }
 
-function ProductCard({ product }: { product: TProduct }) {
+export function ProductCard({ product }: { product: TProduct }) {
   return (
     <Card className="group border-primary-foreground overflow-hidden p-0 shadow-none">
-      <a href={`/produtos/${product.slug}`}>
+      <a href={`/produtos/${product.slug}`} data-testid="product-card-link">
         <div className="relative aspect-square overflow-hidden rounded-xl">
           <img
             src={product.images[0]}
@@ -50,7 +33,9 @@ function ProductCard({ product }: { product: TProduct }) {
         </div>
         <CardContent className="p-4">
           <p className="text-sm">Adidas</p>
-          <h3 className="text-lg font-medium">{product.name}</h3>
+          <h3 className="text-lg font-medium" data-testid="product-cart-title">
+            {product.name}
+          </h3>
           <p className="mt-1 font-bold">
             {transformNumberToBrl(product.price)}
           </p>
