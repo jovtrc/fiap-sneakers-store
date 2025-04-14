@@ -18,7 +18,7 @@ export const Route = createFileRoute('/carrinho')({
   component: ShoppingCart,
 })
 
-function ShoppingCart() {
+export function ShoppingCart() {
   const { cartItems } = useCart()
 
   if (cartItems.length === 0) {
@@ -28,7 +28,7 @@ function ShoppingCart() {
   return <CartPage />
 }
 
-const EmptyCartPage = () => {
+export const EmptyCartPage = () => {
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="flex min-h-full flex-col items-center justify-center py-12 text-center">

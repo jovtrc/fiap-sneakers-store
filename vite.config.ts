@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { sentryVitePlugin } from '@sentry/vite-plugin'
 import tailwindcss from '@tailwindcss/vite'
 import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
@@ -25,5 +26,12 @@ export default defineConfig({
 
   build: {
     sourcemap: true,
+  },
+
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['./src/tests/setup.ts'],
+    exclude: ['**/node_modules/**', '**/dist/**', 'src/tests/e2e/**'],
   },
 })

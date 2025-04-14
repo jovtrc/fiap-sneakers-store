@@ -37,7 +37,7 @@ export const SessionProvider = ({ children }: Props) => {
 
   return (
     <SessionContext.Provider value={{ session }}>
-      {isLoading ? <>Caraio</> : children}
+      {isLoading ? <></> : children}
     </SessionContext.Provider>
   )
 }
