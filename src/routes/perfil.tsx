@@ -107,6 +107,7 @@ export function RouteComponent() {
                   <div
                     key={order.id}
                     className="overflow-hidden rounded-lg border"
+                    data-testid="order-details-card"
                   >
                     <div className="bg-muted/50 flex flex-col items-start justify-between gap-4 p-4 sm:flex-row sm:items-center">
                       <div>

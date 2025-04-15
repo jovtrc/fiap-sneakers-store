@@ -66,6 +66,7 @@ export default function LoginForm() {
                 type="email"
                 required
                 name="email"
+                data-testid="login-email-input"
                 onChange={handleInputChange}
                 className="border-muted-foreground/20 focus-visible:ring-primary/50 pl-10"
               />
@@ -80,6 +81,7 @@ export default function LoginForm() {
                 required
                 name="password"
                 onChange={handleInputChange}
+                data-testid="login-password-input"
                 className="border-muted-foreground/20 focus-visible:ring-primary/50 pl-10"
               />
               <Button
@@ -108,6 +110,7 @@ export default function LoginForm() {
           </div>
           <Button
             type="submit"
+            data-testid="login-submit-button"
             className="from-primary to-primary/80 w-full bg-gradient-to-r"
             disabled={isLoading}
           >

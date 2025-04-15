@@ -142,6 +142,7 @@ export function ProductDetails({ product }: ProductDetailsProps) {
             className="w-full cursor-pointer disabled:cursor-not-allowed"
             disabled={!selectedSize || !selectedColor}
             onClick={handleAddToCart}
+            data-testid="add-to-cart-button"
           >
             <ShoppingCart className="mr-2 h-5 w-5" />
             Adicionar ao Carrinho

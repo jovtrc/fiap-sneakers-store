@@ -12,7 +12,8 @@
     "type-check": "tsc --noEmit",
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write .",
-    "test": "vitest"
+    "test": "vitest",
+    "test:playwright": "playwright test --ui"
   },
   "dependencies": {
     "@microsoft/clarity": "^1.0.0",

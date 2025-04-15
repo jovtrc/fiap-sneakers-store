@@ -66,6 +66,7 @@ export default function RegisterForm() {
                 type="email"
                 required
                 name="email"
+                data-testid="register-email-input"
                 onChange={handleInputChange}
                 className="border-muted-foreground/20 focus-visible:ring-primary/50 pl-10"
               />
@@ -80,6 +81,7 @@ export default function RegisterForm() {
                 type={showPassword ? 'text' : 'password'}
                 required
                 name="password"
+                data-testid="register-password-input"
                 onChange={handleInputChange}
                 className="border-muted-foreground/20 focus-visible:ring-primary/50 pl-10"
               />
@@ -109,6 +111,7 @@ export default function RegisterForm() {
           </p>
           <Button
             type="submit"
+            data-testid="register-submit-button"
             className="from-primary to-primary/80 w-full bg-gradient-to-r"
             disabled={isLoading}
           >
